@@ -1,8 +1,17 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
     <script src="https://cdn.ravenjs.com/3.17.0/raven.min.js" crossorigin="anonymous"></script>
     <j:if test="${it.sentryDsn != null}">
-        <script type="text/javascript">
-            Raven.config('${it.sentryDsn}').install()
+        <script type="text/javascript">(
+        function() {
+            var walkme = document.createElement('script');
+            walkme.type = 'text/javascript';
+            walkme.async = true;
+            walkme.src = 'https://cdn.walkme.com/users/abd2b46830854b038171e27af9af1b34/walkme_abd2b46830854b038171e27af9af1b34_https.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(walkme, s);
+            window._walkmeConfig = {smartLoad:true};
+            }
+            )();
         </script>
     </j:if>
 </j:jelly>
